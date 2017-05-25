@@ -1,0 +1,36 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+            <form method="post" class="mdl-grid">
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample1" ng-model="unit.name">
+                    <label class="mdl-textfield__label" for="sample1">Nome unidade</label>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col mdl-cell--4-col-phone" align="right">
+                    <button class=" mdl-button mdl-js-button mdl-button--raised mdl-button--colored " ng-click="addUnit(unit)">
+                        Adicinar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">name</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="unit in units">
+                <td class="mdl-data-table__cell--non-numeric">{{unit.name}}</td>
+                <td>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="deleteUnit(unit)">
+                        remover
+                    </button>
+                    <a href="#/room/svrau" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">adicionar salas</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
