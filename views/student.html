@@ -1,0 +1,52 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <a ui-sref="rooms({unitId: unitId})" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">voltar</a>
+    </div>
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+            <form method="post" class="mdl-grid">
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample1" ng-model="student.name">
+                    <label class="mdl-textfield__label" for="sample1">Nome</label>
+                </div>
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample1" ng-model="student.email">
+                    <label class="mdl-textfield__label" for="sample1">Email</label>
+                </div>
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample1" ng-model="student.ra">
+                    <label class="mdl-textfield__label" for="sample1">RA</label>
+                </div>
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--4-col-phone" align="right">
+                    <button class=" mdl-button mdl-js-button mdl-button--raised mdl-button--colored " ng-click="addStudent(student)">
+                        Adicinar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">name</th>
+                <th>email</th>
+                <th>ra</th>
+                <th>room name</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in students|filter: roomId">
+                <td class="mdl-data-table__cell--non-numeric">{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.ra}}</td>
+                <td>{{student._room.name}}</td>
+                <td>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="deleteStudent(student)">
+                        remover
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

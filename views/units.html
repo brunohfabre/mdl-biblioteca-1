@@ -18,17 +18,19 @@
         <thead>
             <tr>
                 <th class="mdl-data-table__cell--non-numeric">name</th>
+                <th>quantidade salas</th>
                 <th>action</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="unit in units">
                 <td class="mdl-data-table__cell--non-numeric">{{unit.name}}</td>
+                <td>{{(rooms|filter: unit._id).length}}</td>
                 <td>
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="deleteUnit(unit)">
                         remover
                     </button>
-                    <a href="#/room/svrau" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">adicionar salas</a>
+                    <a ui-sref="rooms({unitId: unit._id})" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">adicionar salas</a>
                 </td>
             </tr>
         </tbody>
